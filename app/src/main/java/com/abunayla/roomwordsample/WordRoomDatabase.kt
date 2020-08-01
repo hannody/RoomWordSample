@@ -32,11 +32,11 @@ abstract class WordRoomDatabase: RoomDatabase() {
             //wordDao.deleteAll()
 
             // Add sample words.
-            var word = Word("Hello")
-            wordDao.insert(word)
-
-            word = Word("World!")
-            wordDao.insert(word)
+//            var word = Word("Hello")
+//            wordDao.insert(word)
+//
+//            word = Word("World!")
+//            wordDao.insert(word)
 
             // TODO: Add your own words!
         }
@@ -58,8 +58,9 @@ abstract class WordRoomDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     WordRoomDatabase::class.java,
-                    "word_database"
+                    "word_database_5.db"
                 )
+                    .createFromAsset("mydb.db")
                     .addCallback(WordDatabaseCallback(scope))
                     .build()
 
